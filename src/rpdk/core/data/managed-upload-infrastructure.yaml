@@ -117,6 +117,11 @@ Resources:
           Statement:
           - Effect: Allow
             Action:
+            - kms:Encrypt
+            - kms:Decrypt
+            - kms:ReEncrypt*
+            - kms:GenerateDataKey*
+            - kms:DescribeKey
             - logs:CreateLogGroup
             - logs:CreateLogStream
             - logs:DescribeLogGroups
@@ -124,6 +129,7 @@ Resources:
             - logs:PutLogEvents
             - cloudwatch:ListMetrics
             - cloudwatch:PutMetricData
+            - s3:PutObject
             Resource: "*"
 
 Outputs:
